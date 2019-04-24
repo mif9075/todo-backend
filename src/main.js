@@ -19,8 +19,10 @@ function getTodos(event) {
 function postTodo(event) {
     event.preventDefault();
 
+    const todoText = document.querySelector('#new-todo').value;
+
     const newTodo = {
-        text: "Profit",
+        text: todoText,
         completed: false
     };
     
