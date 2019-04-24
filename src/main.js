@@ -50,18 +50,19 @@ function updateThirdTodo(event) {
 function handleData(event) {
     console.log(event.target.responseText);
     const todo = JSON.parse(event.target.responseText);
+    console.log(todo);
     displayTable(todo);
 }
 
 function displayTable(todoitem){
 
-    // clearList();
+    clearList();
 
     for (let i = 0; i < todoitem.length; i++){
 
         const textTD = document.querySelector('.text');
         const textData = document.createElement('p');
-        textData.innerText = todoitem.text[i];
+        textData.innerText = todoitem[i].text;
         textTD.appendChild(textData);
     }
 }
