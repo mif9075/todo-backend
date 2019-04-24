@@ -49,4 +49,31 @@ function updateThirdTodo(event) {
 
 function handleData(event) {
     console.log(event.target.responseText);
+    const todo = JSON.parse(event.target.responseText);
+    displayTable(todo);
+}
+
+function displayTable(todoitem){
+
+    // clearList();
+
+    for (let i = 0; i < todoitem.length; i++){
+
+        const textTD = document.querySelector('.text');
+        const textData = document.createElement('p');
+        textData.innerText = todoitem.text[i];
+        textTD.appendChild(textData);
+    }
+}
+
+function clearList(){
+    event.preventDefault();
+    removeAllChildrenOfOl();
+}
+
+function removeAllChildrenOfOl() {
+    const ol = document.querySelector('.text');
+    while (ol.hasChildNodes()) {
+        ol.removeChild(ol.firstChild);
+    }
 }
