@@ -61,7 +61,7 @@ function displayTable(todoitem){
     for (let i = 0; i < todoitem.length; i++){
 
         const textTD = document.querySelector('.text');
-        const textData = document.createElement('p');
+        const textData = document.createElement('li');
         textData.innerText = todoitem[i].text;
         textTD.appendChild(textData);
     }
