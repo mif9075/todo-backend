@@ -1,5 +1,4 @@
-const todos = [];
-console.log(todos);
+let todos = [];
 window.onload = init;
 
 function init() {
@@ -30,6 +29,7 @@ function postTodo(event) {
         completed: false
     };
 
+    todos.push(newTodo);
     
     const jsonnedTodo = JSON.stringify(newTodo);
     
@@ -38,6 +38,9 @@ function postTodo(event) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = handleData;
     xhr.send(jsonnedTodo);
+
+
+
 }
 
 function updateThirdTodo(num) {
@@ -71,33 +74,35 @@ function updateThirdTodo(num) {
 
 function handleData(event) {
     // console.log(event.target.responseText);
-    const todo = JSON.parse(event.target.responseText);
-    todos.push(todo);
-    // console.log(todo);
-    displayTable(todo);
+    todos = JSON.parse(event.target.responseText);
+
+
+    console.log(todos);
+    // todos.push(todo);
+    displayTable(todos);
 }
 
-function displayTable(todoitem){
+function displayTable(todos){
 
     clearList();
     
-    for (let i = 0; i < todoitem.length; i++){
+    for (let i = 0; i < todos.length; i++){
         // const idTD = document.querySelector('.id');
         // const idData = document.createElement('p');
         // idData.innerText = todoitem[i].id;
         // idTD.appendChild(idData);
 
-        if (todoitem[i].completed === false){
+        if (todos[i].completed === false){
             const textTD = document.querySelector('.text_notcomplete');
             const textData = document.createElement('p');
-            textData.innerText = todoitem[i].text;
+            textData.innerText = todos[i].text;
             textData.id = i + 1;
             textData.addEventListener('click', todoRequest);
             textTD.appendChild(textData);
         }else {
             const textTD = document.querySelector('.text_complete');
             const textData = document.createElement('p');
-            textData.innerText = todoitem[i].text;
+            textData.innerText = todos[i].text;
             textData.id = i + 1;
             textData.addEventListener('click', todoRequest);
             textTD.appendChild(textData); 
