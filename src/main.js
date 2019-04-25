@@ -5,7 +5,7 @@ function init() {
     // document.querySelector('#get').addEventListener('click', getTodos);
 
     addClick('#post', postTodo);
-    addClick('#put', updateThirdTodo);
+    // addClick('#put', updateThirdTodo);
     
 // }
 
@@ -75,10 +75,7 @@ function updateThirdTodo(num) {
 function handleData(event) {
     // console.log(event.target.responseText);
     todos = JSON.parse(event.target.responseText);
-
-
     console.log(todos);
-    // todos.push(todo);
     displayTable(todos);
 }
 
