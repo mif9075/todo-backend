@@ -24,19 +24,37 @@ function postTodo(event) {
 
     const todoText = document.querySelector('#new-todo').value;
 
+    
     const newTodo = {
         text: todoText,
         completed: false
     };
 
+    document.querySelector('#new-todo').value = '';
+
     todos.push(newTodo);
+
+    console.log(todos);
+
+    displayTable(todos);
     
     const jsonnedTodo = JSON.stringify(newTodo);
+
+    
+
+    // const newLi = document.createElement('p');
+    // newLi.innerText = newTodo;
+    
+    // newLi.addEventListener('click', updateThirdTodo);
+
+    // const ol = document.querySelector('.text_notcomplete');
+    // ol.appendChild(newLi);
+
     
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:3000/todos');
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = handleData;
+    // xhr.onload = handleData;
     xhr.send(jsonnedTodo);
 
 
@@ -75,7 +93,7 @@ function updateThirdTodo(num) {
 function handleData(event) {
     // console.log(event.target.responseText);
     todos = JSON.parse(event.target.responseText);
-    console.log(todos);
+    // console.log(todos);
     displayTable(todos);
 }
 
