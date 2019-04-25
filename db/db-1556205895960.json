@@ -1,0 +1,89 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "Build a todo app with a back end",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "text": "Post a new todo",
+      "completed": false
+    },
+    {
+      "text": "????",
+      "completed": true,
+      "id": 3
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "text": "Profit",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "text": "avx",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "text": "abc",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "text": "jk",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "text": "kjl",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "text": "abc",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "text": "adfa",
+      "completed": false,
+      "id": 15
+    },
+    {
+      "text": "Adrian",
+      "completed": false,
+      "id": 16
+    },
+    {
+      "text": "",
+      "completed": false,
+      "id": 17
+    }
+  ]
+}
