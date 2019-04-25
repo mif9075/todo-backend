@@ -1,13 +1,16 @@
 window.onload = init;
 
+// const todos = [];
+
 function init() {
-    document.querySelector('#get').addEventListener('click', getTodos);
+    // document.querySelector('#get').addEventListener('click', getTodos);
     document.querySelector('#post').addEventListener('click', postTodo);
     document.querySelector('#put').addEventListener('click', updateThirdTodo);
-}
+    // getTodos;
+// }
 
-function getTodos(event) {
-    event.preventDefault();
+// function getTodos(event) {
+//     event.preventDefault();
 
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/todos');
@@ -36,24 +39,39 @@ function postTodo(event) {
     xhr.send(jsonnedTodo);
 }
 
-function updateThirdTodo(event) {
-    const updatedTodo = {
-        text: '????',
-        completed: true
-    };
-    const jsonnedTodo = JSON.stringify(updatedTodo);
-    
-    const xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'http://localhost:3000/todos/3');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = handleData;
-    xhr.send(jsonnedTodo);
+function updateThirdTodo(num) {
+    if (todos.completed === true){
+        // console.log(num.completed);
+        const updatedTodo = {
+        text: num.innerText,
+        completed: false
+        };
+
+        const jsonnedTodo = JSON.stringify(updatedTodo);
+        const xhr = new XMLHttpRequest();
+        xhr.open('PUT', `http://localhost:3000/todos/${num.id}`);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = handleData;
+        xhr.send(jsonnedTodo);
+
+    } else {
+        const updatedTodo = {
+            text: num.innerText,
+            completed: true
+            }; 
+            const jsonnedTodo = JSON.stringify(updatedTodo);
+            const xhr = new XMLHttpRequest();
+            xhr.open('PUT', `http://localhost:3000/todos/${num.id}`);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = handleData;
+            xhr.send(jsonnedTodo);
+        }
 }
 
 function handleData(event) {
-    console.log(event.target.responseText);
+    // console.log(event.target.responseText);
     const todo = JSON.parse(event.target.responseText);
-    console.log(todo);
+    // console.log(todo);
     displayTable(todo);
 }
 
@@ -71,17 +89,27 @@ function displayTable(todoitem){
             const textTD = document.querySelector('.text_notcomplete');
             const textData = document.createElement('p');
             textData.innerText = todoitem[i].text;
+            textData.id = i + 1;
+            textData.addEventListener('click', todoRequest);
             textTD.appendChild(textData);
         }else {
             const textTD = document.querySelector('.text_complete');
             const textData = document.createElement('p');
             textData.innerText = todoitem[i].text;
+            textData.id = i + 1;
+            textData.addEventListener('click', todoRequest);
             textTD.appendChild(textData); 
         }
 
-        // textData.addEventListener('click', toggleDone);
+        
         
     }
+}
+
+function todoRequest(event){
+    let todoP = event.target;
+    console.log(todoP.id);
+    updateThirdTodo(todoP);
 }
 
 // function toggleDone(event) {
