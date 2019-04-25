@@ -85,4 +85,9 @@ function removeAllChildrenOfOl() {
     while (ol.hasChildNodes()) {
         ol.removeChild(ol.firstChild);
     }
+
+    const ol1 = document.querySelector('.id');
+    while (ol1.hasChildNodes()) {
+        ol1.removeChild(ol1.firstChild);
+    }
 }
