@@ -6,7 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="style.css" rel="stylesheet" type="text/css">
         <script src="main.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
+    
     <body>
         <form id="todo-form">
             <input id="new-todo">
@@ -16,6 +20,21 @@
         <button id="get">Get Todos</button>
         <button id="put">Mark Third Todo Complete</button>
         
-        <p class="text"></p>
+        
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Todos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="id"></th>
+                    <td class="text"></td>    
+                  </tr>
+                </tbody>
+              </table>
+
     </body>
 </html>

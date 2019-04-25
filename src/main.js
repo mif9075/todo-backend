@@ -25,6 +25,7 @@ function postTodo(event) {
         text: todoText,
         completed: false
     };
+
     
     const jsonnedTodo = JSON.stringify(newTodo);
     
@@ -61,9 +62,14 @@ function displayTable(todoitem){
     clearList();
 
     for (let i = 0; i < todoitem.length; i++){
+        const idTD = document.querySelector('.id');
+        const idData = document.createElement('p');
+        idData.innerText = todoitem[i].id;
+        idTD.appendChild(idData);
+
 
         const textTD = document.querySelector('.text');
-        const textData = document.createElement('li');
+        const textData = document.createElement('p');
         textData.innerText = todoitem[i].text;
         textTD.appendChild(textData);
     }
