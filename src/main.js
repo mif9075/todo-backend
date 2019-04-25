@@ -1,11 +1,13 @@
+const todos = [];
+console.log(todos);
 window.onload = init;
-
-// const todos = [];
 
 function init() {
     // document.querySelector('#get').addEventListener('click', getTodos);
-    document.querySelector('#post').addEventListener('click', postTodo);
-    document.querySelector('#put').addEventListener('click', updateThirdTodo);
+    
+    addClick('#post', postTodo);
+    addClick('#put', updateThirdTodo);
+    
     // getTodos;
 // }
 
@@ -71,6 +73,7 @@ function updateThirdTodo(num) {
 function handleData(event) {
     // console.log(event.target.responseText);
     const todo = JSON.parse(event.target.responseText);
+
     // console.log(todo);
     displayTable(todo);
 }
@@ -108,7 +111,7 @@ function displayTable(todoitem){
 
 function todoRequest(event){
     let todoP = event.target;
-    console.log(todoP.id);
+    // console.log(todoP.id);
     updateThirdTodo(todoP);
 }
 
@@ -157,4 +160,11 @@ function clearAllTodos(event) {
     todos.splice(0);
     removeAllChildrenOfOl();
     
+}
+
+//Helper Functions
+
+function addClick(selector, func) {
+    document.querySelector(selector)
+        .addEventListener('click', func);
 }
