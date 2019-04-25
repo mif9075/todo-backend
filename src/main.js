@@ -4,11 +4,10 @@ window.onload = init;
 
 function init() {
     // document.querySelector('#get').addEventListener('click', getTodos);
-    
+
     addClick('#post', postTodo);
     addClick('#put', updateThirdTodo);
     
-    // getTodos;
 // }
 
 // function getTodos(event) {
@@ -73,7 +72,7 @@ function updateThirdTodo(num) {
 function handleData(event) {
     // console.log(event.target.responseText);
     const todo = JSON.parse(event.target.responseText);
-
+    todos.push(todo);
     // console.log(todo);
     displayTable(todo);
 }
